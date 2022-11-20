@@ -89,6 +89,20 @@ const paymentCtrl = {
             res.status(500).json({ message: "Internal Server Error!" });
             console.log(error);
         }
+    },
+    UpdatePayment: async(req, res) => {
+        try{
+            
+            const id = req.body._id;
+            console.log(id)
+            await Payments.findOneAndUpdate({_id: id}, {status: true})
+            
+            res.json({msg: "Completed the order"})
+
+
+        }catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
     }
 }
 

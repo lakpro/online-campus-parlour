@@ -14,4 +14,6 @@ router.route('/orders')
 router.route('/verify')
     .post(paymentCtrl.verify)
 
+router.route('/UpdateOrder').put(auth, authAdmin, paymentCtrl.UpdatePayment)
+
 module.exports = router
